@@ -8,13 +8,25 @@ module.exports = function() {
     return {
         apps: [
             'superdesk-planning',
+            'superdesk-publisher'
         ],
         importApps: [
             '../index',
             'superdesk-planning',
+            'superdesk-publisher'
         ],
 
         defaultRoute: '/workspace/monitoring',
+
+        publisher: {
+            protocol: 'https',
+            tenant: process.env.PUBLISHER_API_SUBDOMAIN || '',
+            domain: process.env.PUBLISHER_API_DOMAIN || 'localhost',
+            base: 'api/v1',
+            wsDomain: process.env.PUBLISHER_WS_DOMAIN || process.env.PUBLISHER_API_DOMAIN,
+            wsPath: process.env.PUBLISHER_WS_PATH || '',
+            wsPort: process.env.PUBLISHER_WS_PORT || '8080'
+        },
 
         langOverride: {
             en: {
