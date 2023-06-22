@@ -66,6 +66,10 @@ module.exports = function() {
             },
         },
 
+        user: {
+            sign_off_mapping: 'mapping test',
+        },
+
         item_profile: { change_profile: 1 },
 
         workspace: {
