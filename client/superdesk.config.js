@@ -67,7 +67,7 @@ module.exports = function() {
         },
 
         user: {
-            sign_off_mapping: 'mapping test',
+            sign_off_mapping: 'username',
         },
 
         item_profile: { change_profile: 1 },
