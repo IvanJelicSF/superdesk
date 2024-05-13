@@ -1,16 +1,16 @@
 FROM ubuntu:20.04
 
-ENV DEBIAN_FRONTEND=noninteractive 
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-python3 python3-dev python3-pip python3-venv git gcc mongo-tools mongodb-clients curl \
+python3 python3-dev python3-pip python3-venv git gcc mongo-tools mongodb-clients curl pkg-config \
 # lxml
-libxml2-dev libxslt-dev \
+libxml2-dev libxslt-dev libxmlsec1 libxmlsec1-dev \
 # PIL
 libjpeg-dev zlib1g-dev \
 # magic
 libmagic-dev \
-&& rm -rf /var/lib/apt/lists/* 
+&& rm -rf /var/lib/apt/lists/*
 
 # setup venv
 ENV VIRTUAL_ENV=/opt/venv

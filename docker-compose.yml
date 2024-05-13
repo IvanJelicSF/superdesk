@@ -32,14 +32,14 @@ services:
       - "9200:9200"
 
   superdesk-server:
-    image: sourcefabricoss/superdesk-server:latest
+    build: ./server
     depends_on:
       - redis
       - mongodb
       - elastic
     environment:
       - SUPERDESK_URL=http://localhost:8080/api
-      - DEMO_DATA=1 # install demo data, set to 0 if you want clean install
+      - DEMO_DATA=0 # install demo data, set to 0 if you want clean install
       - WEB_CONCURRENCY=2
       - SUPERDESK_CLIENT_URL=http://localhost:8080
       - CONTENTAPI_URL=http://localhost:8080/capi
@@ -59,7 +59,7 @@ services:
       - superdesk
 
   superdesk-client:
-    image: sourcefabricoss/superdesk-client:latest
+    build: ./client
     environment:
       # If not hosting on localhost, change these lines
       - SUPERDESK_URL=http://localhost:8080/api
